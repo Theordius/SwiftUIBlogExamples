@@ -10,22 +10,24 @@ import SwiftUI
 struct AGMExample: View {
 
     // MARK: - Properties:
+    @Environment(\.colorScheme) var colorScheme
     @State private var count = 1
 
     private let words = ["Bottle", "Person", "Goose", "Mouse", "Beer", "Peacock"]
 
     // MARK: - Body:
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            GradientBackground(colors: [.blue, .gray, .white], opacity: 1.0)
-
+        NavigationStack {
+            ZStack(alignment: .topTrailing) {
+                GradientBackground(colors: [.blue, .gray, .white], opacity: 1.0)
+                
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         Text("Select desired count")
                             .fontWeight(.heavy).bold()
                             .foregroundStyle(.yellow)
                             .font(.headline)
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(colorScheme == .dark ? .primary : .secondary)
                         
                         Spacer()
                         
@@ -55,6 +57,7 @@ struct AGMExample: View {
                 )
                 .padding()
             }
+        }
     }
 }
 

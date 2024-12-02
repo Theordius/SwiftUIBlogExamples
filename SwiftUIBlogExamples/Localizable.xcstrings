@@ -13,7 +13,20 @@
       "shouldTranslate" : false
     },
     "AGM Example" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elejemplo de AGM"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przykład AGM"
+          }
+        }
+      }
     },
     "Beer" : {
       "localizations" : {
@@ -50,6 +63,19 @@
     "Count: %lld" : {
       "shouldTranslate" : false
     },
+    "Custom Environment Example" : {
+
+    },
+    "Custom Key Example" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przykład CustomKey"
+          }
+        }
+      }
+    },
     "English" : {
       "localizations" : {
         "es" : {
@@ -78,6 +104,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gęś"
+          }
+        }
+      }
+    },
+    "Is Required" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wymagane"
           }
         }
       }
@@ -179,9 +215,17 @@
       }
     },
     "String Catalog" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Katalog Stringów"
+          }
+        }
+      }
     },
     "Swift UI Blog Examples" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {

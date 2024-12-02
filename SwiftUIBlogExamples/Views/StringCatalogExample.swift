@@ -14,33 +14,33 @@ struct StringCatalogExample: View {
 
     //MARK: - Body:
     var body: some View {
-
-        ZStack {
-            GradientBackground(colors: [.blue, .gray, .white], opacity: 1.0)
-            VStack(alignment: .center, spacing: 8) {
-                ForEach(words.indices, id: \.self) { index in
-                    HStack(alignment: .center) {
-
-                        Spacer()
-
-                        Text(words[index])
-
-                        Spacer()
+            ZStack(alignment: .topTrailing) {
+                GradientBackground(colors: [.blue, .gray, .white], opacity: 1.0)
+                VStack(alignment: .center, spacing: 8) {
+                    ForEach(words.indices, id: \.self) { index in
+                        HStack(alignment: .center) {
+                            
+                            Spacer()
+                            
+                            Text(words[index])
+                            
+                            Spacer()
+                        }
+                        .foregroundStyle(.yellow)
+                        .fontWeight(.black)
+                        .font(.headline)
+                        .foregroundColor(.primary)
                     }
-                    .foregroundStyle(.yellow)
-                    .fontWeight(.black)
-                    .font(.headline)
-                    .foregroundColor(.primary)
                 }
+                .padding(.vertical, 8)
+                .background(
+                    GradientBackground(colors: [.black, .gray, .black, .white], opacity: 1.0)
+                )
+                .clipShape(.rect(cornerRadius: 4, style: .continuous))
+                .padding(16)
+                
             }
-            .padding(.vertical, 8)
-            .background(
-                GradientBackground(colors: [.black, .gray, .black, .white], opacity: 1.0)
-            )
-            .clipShape(.rect(cornerRadius: 4, style: .continuous))
-            .padding(16)
 
-        }
     }
 }
 

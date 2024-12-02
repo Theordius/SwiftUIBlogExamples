@@ -8,23 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    //MARK: - Properties:
+    @State private var selectedTab: Tab = .agm
+
+    enum Tab {
+        case agm, stringCatalog, customKey
+    }
+
+    //MARK: - Body:
     var body: some View {
         NavigationStack {
-            TabView {
+            TabView(selection: $selectedTab) {
                 AGMExample()
+                    .tag(Tab.agm)
                     .tabItem {
                         Label("AGM Example", systemImage: "arrow.triangle.merge")
                     }
-                    .tag(1)
 
                 StringCatalogExample()
+                    .tag(Tab.stringCatalog)
                     .tabItem {
                         Label("String Catalog", systemImage: "text.book.closed")
                     }
-                    .tag(2)
+
+                CustomEnvironmentKeyExample()
+                    .tag(Tab.customKey)
+                    .tabItem {
+                        Label("Custom Key Example", systemImage: "key.horizontal.fill")
+                    }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Swift UI Blog Examples")
+            .navigationTitle(navigationTitle(for: selectedTab))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     LanguageOptionsMenu(appData: .init())
@@ -37,8 +52,19 @@ struct ContentView: View {
             }
         }
     }
-}
 
+    //MARK: - Private functions:
+    private func navigationTitle(for tab: Tab) -> String {
+        switch tab {
+        case .agm:
+            return "AGM Example"
+        case .stringCatalog:
+            return "String Catalog"
+        case .customKey:
+            return "Custom Key Example"
+        }
+    }
+}
 #Preview {
     ContentView()
         .environmentObject(AppData())
